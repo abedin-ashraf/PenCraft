@@ -1,6 +1,8 @@
 import { Hono } from "hono";
 import { decode, sign, verify } from 'hono/jwt';
 
+import { createBlogInput, updateBlogInput } from "@abedin-ashraf/pencraft-common";
+
 //Initializing the Prisma Client
 import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
@@ -23,15 +25,23 @@ blogRouter.use("/*", async (c, next) => {
             error: "Unauthorized"
         })
     }
-    const user = await verify(authHeader, c.env.JWT_SECRET);
-    if (!user) {
-        c.status(403);
+    try {
+        const user = await verify(authHeader, c.env.JWT_SECRET);
+        if (!user) {
+            c.status(403);
+            return c.json({
+                message: "You are not logged in"
+            })
+        }
+        c.set("userId", user.id);
+        await next();
+    }
+    catch (error) {
+        c.status(401);
         return c.json({
-            message: "You are not logged in"
+            error: "Unauthorized"
         })
     }
-    c.set("userId", user.id);
-    await next();
     //Extract userId
     //pass it down to the route handler
 });
@@ -43,6 +53,15 @@ blogRouter.post('/post', async (c) => {
     }).$extends(withAccelerate())
 
     const body = await c.req.json();
+
+    const { success } = createBlogInput.safeParse(body);
+    if (!success) {
+        c.status(411);
+        return c.json({
+            message: "Input is not correct"
+        })
+    }
+
     const authorId = c.get("userId");
 
     const blog = await prisma.post.create({
@@ -63,6 +82,14 @@ blogRouter.put('/put', async (c) => {
 
     try {
         const body = await c.req.json();
+        const { success } = updateBlogInput.safeParse(body);
+        if (!success) {
+            c.status(411);
+            return c.json({
+                message: "Input is not correct"
+            })
+        }
+
         const userId = c.get('userId');
 
         const blog = await prisma.post.update({
