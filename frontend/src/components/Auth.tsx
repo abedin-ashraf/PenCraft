@@ -3,7 +3,7 @@ import { LabelledInput } from "./LabelledInput"
 import { useState } from "react"
 import { SignupInput } from "@abedin-ashraf/pencraft-common"
 import axios from "axios";
-import { BACKEND_URL } from "../../config";
+import { BACKEND_URL } from "../config";
 
 export const Auth = ({ type }: { type: "signup" | "signin" }) => {
 
