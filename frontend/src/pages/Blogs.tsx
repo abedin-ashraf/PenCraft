@@ -1,7 +1,7 @@
 import { Appbar } from "../components/Appbar"
 import { BlogCard } from "../components/BlogCard"
 import { useBlogs } from "../hooks"
-import { BlogSkeleton } from "../components/BlogSkeleton"
+import { BlogCardSkeleton } from "../components/BlogCardSkeleton"
 
 
 
@@ -12,15 +12,21 @@ export const Blogs = () => {
         return <div>
             <Appbar />
             <div className="flex justify-center">
-                <BlogSkeleton />
-                <BlogSkeleton />
-                <BlogSkeleton />
+                <div>
+                    <BlogCardSkeleton />
+                    <BlogCardSkeleton />
+                    <BlogCardSkeleton />
+                    <BlogCardSkeleton />
+                    <BlogCardSkeleton />
+                    <BlogCardSkeleton />
+                </div>
             </div>
         </div>
     }
     return <div>
         <Appbar />
         <div className="flex justify-center">
+
             <div className="">
                 {blogs.map(blog => <BlogCard id={blog.id || ""} authorName={blog.author.name} title={blog.tittle} content={blog.content} publishedDate="2nd Feb 2024" />
                 )}
