@@ -4,6 +4,16 @@ import { Avatar } from "./Avatar"
 
 
 export const BlogComponent = ({ blog }: { blog: Blog }) => {
+    const lines = blog.content.split('\n');
+
+    const paragraphs: JSX.Element[] = lines.map((line, index) => {
+        if (line.trim() === '') {
+            return <br key={index} />;
+        }
+        return <p key={index}>{line}</p>;
+    });
+
+
     return <div>
         <Appbar />
         <div className="flex justify-center">
@@ -11,7 +21,8 @@ export const BlogComponent = ({ blog }: { blog: Blog }) => {
                 <div className="col-span-8">
                     <div className="text-5xl font-extrabold">{blog.tittle}</div>
                     <div className="text-slate-500 pt-2">Posted on 22nd December 2023</div>
-                    <div className="pt-6 text-lg ">{blog?.content}</div>
+                    <div className="pt-6 text-lg ">{paragraphs}</div>
+
                 </div>
 
                 <div className="col-span-4">

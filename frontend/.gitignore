@@ -1,3 +1,5 @@
+.env
+openai.ts
 # Logs
 logs
 *.log
