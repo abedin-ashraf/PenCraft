@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { Avatar } from "./Avatar";
+import { format } from 'date-fns';
 
 interface BlogCardProps {
     id: string,
     authorName: string;
     title: string;
     content: string;
-    publishedDate: string;
+    published_date: string;
 }
 
-export const BlogCard = ({ id, authorName, title, content, publishedDate }: BlogCardProps) => {
+export const BlogCard = ({ id, authorName, title, content, published_date }: BlogCardProps) => {
+    const formattedDate = format(published_date, 'MMMM d, yyyy, h:mm a');
     return <Link to={`/blog/${id}`}>
         <div className="p-4 border-b border-slate-200 pb-4 w-screen max-w-screen-md cursor-pointer">
             <div className="flex">
@@ -19,7 +21,7 @@ export const BlogCard = ({ id, authorName, title, content, publishedDate }: Blog
                     {authorName}
                 </div>
                 <div className="pl-2 flex justify-center flex-col"><Circle /></div>
-                <div className="pl-2 font-thin text-slate-500 text-sm flex justify-center flex-col">{publishedDate}</div>
+                <div className="pl-2 font-thin text-slate-500 text-sm flex justify-center flex-col">Published on {formattedDate}</div>
             </div>
             <div className="text-xl font-semibold pt-2">
                 {title}

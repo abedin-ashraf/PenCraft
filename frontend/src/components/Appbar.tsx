@@ -1,7 +1,6 @@
-import { useState } from "react";
+
 import { Profile } from "./Profile";
 import { Link } from "react-router-dom";
-
 
 export const Appbar = () => {
     return <div className="border-b px-16 ">
@@ -10,6 +9,8 @@ export const Appbar = () => {
                 <Link to={'/blogs'}>
                     <div className="mr-4 flex flex-col justify-center font-semibold cursor-pointer text-green-700">PenCraft</div>
                 </Link>
+
+
             </div>
             <div className="flex">
                 <div>
