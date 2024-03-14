@@ -21,7 +21,7 @@ export const BlogCard = ({ id, authorName, title, content, published_date }: Blo
                     {authorName}
                 </div>
                 <div className="pl-2 flex justify-center flex-col"><Circle /></div>
-                <div className="pl-2 font-thin text-slate-500 text-sm flex justify-center flex-col">Published on {formattedDate}</div>
+                <div className="pl-2 font-thin text-slate-500 text-sm flex justify-center flex-col">{formattedDate}</div>
             </div>
             <div className="text-xl font-semibold pt-2">
                 {title}
