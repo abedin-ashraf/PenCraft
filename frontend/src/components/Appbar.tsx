@@ -3,8 +3,8 @@ import { MenuBar } from "./MenuBar";
 import { Link } from "react-router-dom";
 
 export const Appbar = () => {
-    return <div className="border-b px-16 ">
-        <div className="flex justify-between px-10 pt-4 pb-1">
+    return <div className="border-b relative ">
+        <div className="flex justify-between items-center pt-4 pb-1">
             <div>
                 <Link to={'/blogs'}>
                     <div className="mr-4 flex flex-col justify-center font-semibold cursor-pointer text-green-700">PenCraft</div>
