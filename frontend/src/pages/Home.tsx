@@ -17,7 +17,7 @@ export const Home = () => {
                 </div>
             </div>
             <div className="flex justify-center">
-                <img className="size-2/5" src="../assets/undraw_Mobile_wireframe_re_jxui.png" alt="" />
+                <img className="size-2/5" src="../assets/undraw_Mobile_wireframe_re_jxui.png" alt="logo" />
             </div>
         </div>
 
