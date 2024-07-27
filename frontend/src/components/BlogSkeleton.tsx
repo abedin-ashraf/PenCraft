@@ -1,5 +1,4 @@
-import { Appbar } from "./Appbar"
-import { Avatar } from "./Avatar"
+
 
 export const BlogSkeleton = () => {
 

@@ -3,8 +3,8 @@ import { Appbar } from "../components/Appbar"
 import { BACKEND_URL } from "../config"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { config } from '../openai';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+// import { config } from '../openai';
+// import { GoogleGenerativeAI } from "@google/generative-ai";
 
 
 
@@ -43,16 +43,16 @@ export const Publish = () => {
                 Publish post
             </button>
 
-            <button onClick={async () => {
+            {/* <button onClick={async () => {
                 // Access your API key as an environment variable (see "Set up your API key" above)4
-                const genAI = new GoogleGenerativeAI(config.GEMINI_API);
+                // const genAI = new GoogleGenerativeAI(config.GEMINI_API);
                 // For text-only input, use the gemini-pro model
-                const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+                // const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
                 const prompt = `${title}`;
 
-                const result = await model.generateContent(prompt);
-                const response = await result.response;
+                // const result = await model.generateContent(prompt);
+                // const response = await result.response;
                 console.log(response);
 
                 const text = response.text();
@@ -60,7 +60,7 @@ export const Publish = () => {
                 // console.log(cleanedText);
                 setContent(cleanedText);
             }} className="mt-4 text-white bg-yellow-700 hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Generate with Gemini</button>
-
+ */}
 
         </div>
 

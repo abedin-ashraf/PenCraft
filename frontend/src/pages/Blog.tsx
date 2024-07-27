@@ -15,7 +15,18 @@ export const Blog = () => {
             <div><BlogSkeleton /></div>
         </div>
     }
+
+    const defaultBlog = {
+        "content": "string",
+        "tittle": "How to become a Web Developer in 2024",
+        "id": "101",
+        "published_date": "24 July 2024",
+        "author": {
+            "name": "Ashraf",
+        }
+    }
+
     return <div>
-        <BlogComponent blog={blog} />
-    </div>
+        < BlogComponent blog={blog || defaultBlog} />
+    </div >
 }
