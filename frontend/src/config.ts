@@ -1,1 +1,1 @@
-export const BACKEND_URL = "https://pencraft.nurulabedinashraf.workers.dev/"
+export const BACKEND_URL = "https://backend.nurulabedinashraf.workers.dev/"
