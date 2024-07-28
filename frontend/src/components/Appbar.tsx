@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Appbar = () => {
     return <div className="border-b relative ">
-        <div className="flex justify-between items-center pt-4 pb-1">
+        <div className="flex justify-between items-center pt-4 pb-1 mx-20 ">
             <div>
                 <Link to={'/blogs'}>
                     <div className="mr-4 flex flex-col justify-center font-semibold cursor-pointer text-green-700">PenCraft</div>

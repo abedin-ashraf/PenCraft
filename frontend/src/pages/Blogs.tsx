@@ -23,7 +23,7 @@ export const Blogs = () => {
             </div>
         </div>
     }
-    return <div>
+    return <div >
         <Appbar />
         <div className="flex justify-center">
 
