@@ -104,7 +104,7 @@ userRouter.use("/*", async (c, next) => {
                 message: "You are not logged in"
             })
         }
-        c.set("userId", user.id);
+        c.set("userId", (user as { id: string }).id);
         await next();
     }
     catch (error) {
